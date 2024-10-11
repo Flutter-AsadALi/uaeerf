@@ -1,17 +1,11 @@
-import 'dart:developer';
 
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:uaeerf_app/app_screens/splash_view/splash_services.dart';
-import 'package:uaeerf_app/utils/app_text_style.dart';
-
 import '../../controllers/app_preferences_controller/prefrences_controller.dart';
-
-import '../../controllers/label_controller/label_controller.dart';
+import '../../generated/assets.dart';
 import '../../resources/session_controller/session_controller.dart';
-import '../../utils/images_path.dart';
 import '../../utils/preference_labels.dart';
-
+import 'package:sizer/sizer.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -60,13 +54,9 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:Text("splash screen",style: AppTextStyle.boldBlack12,),
-        // Image(
-        //   image: AssetImage(
-        //     AppImagesPath.fullAppLogoImage,
-        //   ),
-        // ),
-      ),
-    );
+        child:
+        Image.asset(Assets.iconsAppLogo,height: 20.h,width: 20.h,)
+        ),
+      );
   }
 }

@@ -7,8 +7,7 @@ class Assets {
   static const String iconsAppLogo = 'assets/icons/app_logo.png';
   static const String imagesAppLogo = 'assets/images/app_logo.png';
   static const String imagesBgImage = 'assets/images/bg_image.png';
-  static const String imagesDashLogo = 'assets/images/dash_logo.png';
   static const String imagesLoader = 'assets/images/loader.gif';
-  static const String imagesNewLogo = 'assets/images/new_logo.png';
+  static const String imagesLogoMain = 'assets/images/logomain.png';
 
 }

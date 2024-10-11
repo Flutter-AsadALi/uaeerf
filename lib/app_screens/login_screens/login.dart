@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../controllers/login_controller/auth_controller.dart';
+import '../../generated/assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_text_style.dart';
 import '../../utils/custom_drop_down.dart';
@@ -72,9 +74,20 @@ class _LoginScreenState extends State<LoginScreen> {
                               SizedBox(
                                 height: 2.h,
                               ),
-                              Text(
-                                "Create an Account",
-                                style: AppTextStyle.boldThemeDark14,
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SizedBox(
+                                    width: 50.w,
+                                    child: Text(
+                                      "Create an Account",
+                                      maxLines: 2,
+                                      overflow:TextOverflow.ellipsis,
+                                      style: AppTextStyle.boldThemeDark14,
+                                    ),
+                                  ),
+                                  Image.asset(Assets.imagesLogoMain,width: 10.h,height: 10.h,)
+                                ],
                               ),
                               SizedBox(
                                 height: 2.h,

@@ -53,15 +53,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
-//    signingConfigs {
-//        release {
-//            keyAlias 'driverUpload'
-//            keyPassword '12345678'
-//            storeFile file('/Users/macbookpro/driverUpload-keystore.jks')
-//            storePassword '12345678'
-//            keyAlias keys
-//        }
-//    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
