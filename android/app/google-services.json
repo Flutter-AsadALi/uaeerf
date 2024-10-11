@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881177671517",
+    "project_id": "smucci-store",
+    "storage_bucket": "smucci-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881177671517:android:13e447ae77e8a9bacadab4",
+        "android_client_info": {
+          "package_name": "com.appuaeerf.uaeerfapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsRK26KlRLc3FUGIn57Pp7ANIw1Pv_uG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
