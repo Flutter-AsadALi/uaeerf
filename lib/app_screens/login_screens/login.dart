@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_phosphor_icons/flutter_phosphor_icons.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -86,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       style: AppTextStyle.boldThemeDark14,
                                     ),
                                   ),
-                                  Image.asset(Assets.imagesLogoMain,width: 10.h,height: 10.h,)
+                                  Image.asset(Assets.imagesLogomain,width: 10.h,height: 10.h,)
                                 ],
                               ),
                               SizedBox(
@@ -308,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           LengthLimitingTextInputFormatter(13),
                                         ],
                                         keyboardType: TextInputType.number,
-                                        hintText: "00971561234567",
+                                        hintText: "971561234567",
                                         bkColor:
                                             AppColors.white.withOpacity(0.9),
                                       ),
@@ -411,7 +410,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         borderWidth: 0.1.w,
                                         controller:
                                             authController.weightController,
-                                        hintText: "66 kg",
+                                        hintText: "in kg",
                                         bkColor:
                                             AppColors.white.withOpacity(0.9),
                                       ),
@@ -421,7 +420,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       PrimaryTextField(
                                         headingTextStyle:
                                             AppTextStyle.regularBlack12,
-                                        heading: "Location",
+                                        heading: "Address",
                                         iconVal: true,
                                         prefixIcon: Icon(
                                           Icons.pin_drop_outlined,
@@ -439,8 +438,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                         height: 2.h,
                                       ),
                                       CustomDropDownField(
-                                        heading: 'Select Country',
-                                        hintText: 'Choose Country...',
+                                        heading: 'Select Nationality',
+                                        hintText: 'Choose Nationality...',
                                         bkColor:
                                             AppColors.white.withOpacity(0.9),
                                         headingTextStyle:
@@ -494,7 +493,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
           bottomNavigationBar: Obx(() {
             return authController.isLoading.value
-                ? SizedBox()
+                ? const SizedBox()
                 : Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(1.h),
@@ -527,60 +526,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-/*Center(
-                                  child: PrimaryButton(
-                                    title: "login",
-                                    // labelsController
-                                    //     .labelModel
-                                    //     .data!
-                                    //     .pageLogin!
-                                    //     .loginButton!,
-                                    isIcon: true,
-                                    icon: Icon(
-                                      PhosphorIcons.sign_in,
-                                      size: 3.h,
-                                      color: AppColors.white,
-                                    ),
-                                    titleColor: AppColors.white,
-                                    textStyle: AppTextStyle.boldWhite13,
-                                    width: 70.w,
-                                    backgroundColor: AppColors.green,
-                                    height: screenSize.height > 680? 6.h : 9.h,
-
-                                    onPressed: () {
-                                      authController.submitPersonNewRegistration();
-
-
-
-                                    },
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 1.h),
-                                  ),
-                                ),
-                                  Center(
-                                  child: PrimaryButton(
-                                    title: "register",
-                                    // labelsController
-                                    //     .labelModel
-                                    //     .data!
-                                    //     .pageLogin!
-                                    //     .loginButton!,
-                                    isIcon: true,
-                                    icon: Icon(
-                                      PhosphorIcons.sign_in,
-                                      size: 3.h,
-                                      color: AppColors.white,
-                                    ),
-                                    titleColor: AppColors.white,
-                                    textStyle: AppTextStyle.boldWhite13,
-                                    width: 70.w,
-                                    backgroundColor: AppColors.green,
-                                    height: screenSize.height > 680? 6.h : 9.h,
-
-                                    onPressed: () {
-                                      // authController.performRegistration();
-                                    },
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 1.h),
-                                  ),
-                                ),*/

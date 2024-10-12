@@ -94,7 +94,7 @@ class AuthHelper {
       if (resp.isSuccess) {
         // Assuming the response is in XML format and you want to print or process it
         log('registerNewUserHelper ${resp.data}');
-        var data=parsePersonRegistrationMainData(resp.data);
+        var data=parsePersonRegistrationResponse(resp.data);
         return data;
       } else {
         log('Failed to registerNewUserHelper ${resp.message}');
@@ -108,14 +108,22 @@ class AuthHelper {
 
 
 
-  PersonRegistrationResult parsePersonRegistrationMainData(String response) {
+// Function to parse the XML response and return PersonRegistrationResponse
+  PersonRegistrationResponse parsePersonRegistrationResponse(String response) {
     final document = xml.XmlDocument.parse(response);
 
     // Get the registration result
     final registrationResultText = document.findAllElements('Submit_PersonNewRegistrationResult').single.text;
     final isRegistrationSuccessful = registrationResultText == 'true';
 
-    return PersonRegistrationResult(isRegistrationSuccessful: isRegistrationSuccessful);
+    // Get all message strings
+    final messageElements = document.findAllElements('string');
+    final messages = messageElements.map((e) => e.text).toList();
+
+    return PersonRegistrationResponse(
+      isRegistrationSuccessful: isRegistrationSuccessful,
+      messages: messages,
+    );
   }
   ///
   ///

@@ -19,7 +19,7 @@ class AuthController extends GetxController {
   late AuthHelper _authHelper;
   final formKey = GlobalKey<FormState>();
   late LoginResponseModel loginResponse;
-  late PersonRegistrationResult personRegistrationResult;
+  late PersonRegistrationResponse personRegistrationResult;
   RxBool isLoading = false.obs;
   bool isCheckValue = false;
   RxBool isVisible = false.obs;
@@ -166,7 +166,6 @@ class AuthController extends GetxController {
       return false;
     }
 
-    // If all validations pass
     submitPersonNewRegistration();
     return true;
   }
@@ -198,56 +197,75 @@ class AuthController extends GetxController {
 /* -------------------------------------------------------------------------- */
   submitPersonNewRegistration() async {
     String soapAction = "http://ws.uaeerf.ae/Submit_PersonNewRegistration";
-    isLoading.value = true;
-    var res = loginSoap();
-    if (res) {
-      var dob = formatDateForAPI(dobController.text);
-      var nowDate = formatDateForAPI(DateTime.now().toString());
-      print("nowDate");
-      print(nowDate);
-      var name = "${firstNameController.text} ${lastNameController.text}";
-      var response = await _authHelper.registerNewUserHelper(
-        soapAction: soapAction,
-        personType: int.parse(selectRegistrationTypeID),
-        formId: 1,
-        userId: 6422,
-        name: name,
-        fatherName: fatherNameController.text,
-        country: selectCountry,
-        countryId: selectCountryID,
-        nationality: selectCountry,
-        nationalityId: selectCountryID,
-        dob: dob,
-        sex: selectGender,
-        sexId: selectGenderID,
-        address: addressController.text,
-        poBox: '111311',
-        city: selectCity,
-        cityId: selectCityID,
-        mobile: phoneNumberController.text,
-        email: emailController.text,
-        registrationType: 'Full',
-        dateSubmit: nowDate,
-        status: 'Approved',
-        statusId: 1,
-        seasonCode: 2024,
-        documentCheck: 1,
-        weight: weightController.text,
-        eid: eIdNumberController.text,
-        sourceId: 1,
-      );
-      print(response);
+    isLoadingReload.value = true;
+     await loginSoap().then((res)async{
+       if (res) {
+         var dob = formatDateForAPI(dobController.text);
+         var nowDate = formatDateForAPI(DateTime.now().toString());
+         print("nowDate");
+         print(nowDate);
+         var name = "${firstNameController.text} ${lastNameController.text}";
+          await _authHelper.registerNewUserHelper(
+           soapAction: soapAction,
+           personType: int.parse(selectRegistrationTypeID),
+           formId: 1,
+           userId: 6422,
+           name: name,
+           fatherName: fatherNameController.text,
+           country: selectCountry,
+           countryId: selectCountryID,
+           nationality: selectCountry,
+           nationalityId: selectCountryID,
+           dob: dob,
+           sex: selectGender,
+           sexId: selectGenderID,
+           address: addressController.text,
+           poBox: '111311',
+           city: selectCity,
+           cityId: selectCityID,
+           mobile: phoneNumberController.text,
+           email: emailController.text,
+           registrationType: 'Full',
+           dateSubmit: nowDate,
+           status: 'Approved',
+           statusId: 1,
+           seasonCode: 2024,
+           documentCheck: 1,
+           weight: weightController.text,
+           eid: eIdNumberController.text,
+           sourceId: 1,
+         ).then((response){
+            print("response==true");
+            print(response);
+            if (response == false) {
+              isLoadingReload.value = false;
+            }else{
+              personRegistrationResult = response;
 
-      if (response == true) {
-        personRegistrationResult = response;
-        if (personRegistrationResult.isRegistrationSuccessful == true) {
-          showSuccessMessage("Register Done");
-          clearAllData();
-          updated();
-          isLoading.value = false;
-        }
-      }
-    }
+              print("response==true");
+              print(personRegistrationResult.isRegistrationSuccessful);
+              if (personRegistrationResult.isRegistrationSuccessful == true) {
+                print("isRegistrationSuccessful==true");
+                showSuccessMessage("Register Done");
+                clearAllData();
+                updated();
+                isLoadingReload.value = false;
+              }else{
+                print("isRegistrationSuccessful==false");
+                print(personRegistrationResult.messages.length);
+                if(personRegistrationResult.messages.length>2){
+                  for(var i=2;i<personRegistrationResult.messages.length;i++) {
+                    showErrorMessage(personRegistrationResult.messages[i]);
+                  }
+                }
+                isLoadingReload.value = false;
+              }
+            }
+          });
+
+       }
+     });
+
   }
 
   void clearAllData() {
@@ -373,8 +391,9 @@ class AuthController extends GetxController {
       if (emailAvailabilityModel.isEmailAvailable != true) {
         emailController.text = "";
         showErrorMessage("This Email is Already used");
-      }else{
         return false;
+      }else{
+        return true;
       }
     }
   }
@@ -396,8 +415,9 @@ class AuthController extends GetxController {
       if (phoneAvailabilityModel.isMobileAvailable != true) {
         phoneNumberController.text = "";
         showErrorMessage("This Phone Number is Already used");
-      }else{
         return false;
+      }else{
+        return true;
       }
     }
   }

@@ -1,12 +1,17 @@
-class PersonRegistrationResult {
+class PersonRegistrationResponse {
   final bool isRegistrationSuccessful;
+  final List<String> messages;
 
-  PersonRegistrationResult({required this.isRegistrationSuccessful});
+  PersonRegistrationResponse({
+    required this.isRegistrationSuccessful,
+    required this.messages,
+  });
 
   // Factory constructor to create from a map
-  factory PersonRegistrationResult.fromMap(Map<String, dynamic> map) {
-    return PersonRegistrationResult(
+  factory PersonRegistrationResponse.fromMap(Map<String, dynamic> map) {
+    return PersonRegistrationResponse(
       isRegistrationSuccessful: map['Submit_PersonNewRegistrationResult'] as bool,
+      messages: List<String>.from(map['msg']),
     );
   }
 
@@ -14,11 +19,12 @@ class PersonRegistrationResult {
   Map<String, dynamic> toMap() {
     return {
       'Submit_PersonNewRegistrationResult': isRegistrationSuccessful,
+      'msg': messages,
     };
   }
 
   @override
   String toString() {
-    return 'PersonRegistrationResult(isRegistrationSuccessful: $isRegistrationSuccessful)';
+    return 'PersonRegistrationResponse(isRegistrationSuccessful: $isRegistrationSuccessful, messages: $messages)';
   }
 }

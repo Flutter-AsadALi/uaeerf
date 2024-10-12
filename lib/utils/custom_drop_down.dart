@@ -64,7 +64,7 @@ class CustomDropDownField extends StatelessWidget {
                     value: item,
                     child: Text(
                       item,
-                      style: AppTextStyle.regularGrey12,
+                      style: AppTextStyle.regularBlack12,
                     ),
                   );
                 }).toList(),

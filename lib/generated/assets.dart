@@ -2,12 +2,17 @@
 class Assets {
   Assets._();
 
-  static const String assetsFontsMadimiOneRegular = 'assets/fonts/MadimiOne-Regular.ttf';
-  static const String fontsMadimiOneRegular = 'assets/fonts/MadimiOne-Regular.otf';
+  static const String fontsNexaBold = 'assets/fonts/NexaBold.otf';
+  static const String fontsNexaLight = 'assets/fonts/NexaLight.otf';
+  static const String fontsNexaRegular = 'assets/fonts/NexaRegular.otf';
+  static const String fontsNexaXBold = 'assets/fonts/NexaXBold.otf';
   static const String iconsAppLogo = 'assets/icons/app_logo.png';
   static const String imagesAppLogo = 'assets/images/app_logo.png';
   static const String imagesBgImage = 'assets/images/bg_image.png';
   static const String imagesLoader = 'assets/images/loader.gif';
-  static const String imagesLogoMain = 'assets/images/logomain.png';
+  static const String imagesLogomain = 'assets/images/logomain.png';
+  static const String sSS1 = 'assets/SS/s1.png';
+  static const String sSS2 = 'assets/SS/s2.png';
+  static const String sSSplash = 'assets/SS/splash.png';
 
 }
