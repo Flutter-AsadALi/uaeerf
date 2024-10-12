@@ -16,7 +16,7 @@ This Flutter Android application handles user registration by retrieving and dis
     - Drop down list with filtering.
 ## Screenshots
 
-![Screenshot Splash Screen](https://github.com/Flutter-AsadALi/uaeerf/blob/main/assets/SS/s1.png)
+![Screenshot Splash Screen](https://github.com/Flutter-AsadALi/uaeerf/blob/main/assets/SS/splash.png)
 ![Screenshot Register Screen](https://github.com/Flutter-AsadALi/uaeerf/blob/main/assets/SS/s1.png)
 ![Screenshot Register Screen](https://github.com/Flutter-AsadALi/uaeerf/blob/main/assets/SS/s2.png)
 
