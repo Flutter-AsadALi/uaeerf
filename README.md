@@ -43,8 +43,8 @@ You can download the APK file for the app here: [Download App APK](https://githu
 
 ## Usage
 
-1. Launch the app to access the list .
-2. Tap on a card to view detailed information.
+1. Launch the app to access the Register From.
+2. Submit Form.
 
 ## Technologies Used
 
